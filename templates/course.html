@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Student Course Selection</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 50px;
+		}
+
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+		}
+
+		form {
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+			width: 50%;
+			max-width: 500px;
+		}
+
+		input[type="text"],
+		input[type="number"],
+		select {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+
+		input[type="submit"],
+		input[type="button"] {
+			background-color: #4CAF50;
+			color: white;
+			padding: 12px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			margin-top: 20px;
+		}
+
+		input[type="submit"]:hover,
+		input[type="button"]:hover {
+			background-color: #3e8e41;
+		}
+
+		p {
+			text-align: center;
+		}
+	</style>
+
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="container">
+		<h1>Student Course Selection</h1>
+		<form action="/course" method="POST">
+			<label for="id">Enter your ID:</label>
+			<input type="text" id="id" name="id" placeholder="Enter your student ID..." required>
+			<label for="course">Select a course:</label>
+			<select id="course" name="course" required>
+				<option value="" disabled selected>Select a course...</option>
+				<option value="Computer Science">Computer Science</option>
+				<option value="Data Science">Data Science</option>
+				<option value="Web Development">Web Development</option>
+				<option value="Artificial Intelligence">Artificial Intelligence</option>
+				<option value="Machine Learning">Machine Learning</option>
+				<option value="Computer Networks">Computer Networks</option>
+				<option value="Operating Systems">Operating Systems</option>
+				<option value="Database Systems">Database Systems</option>
+				<option value="Algorithms and Data Structures">Algorithms and Data Structures</option>
+				<option value="Computer Graphics">Computer Graphics</option>
+			</select>
+			<label for="credit-hours">Enter the credit hours:</label>
+			<input type="number" id="credit-hours" name="credit-hours" placeholder="Enter the credit hours..." required>
+			<input type="submit" value="Register">
+		</form>
+		{% if dresult %}
+		<form action="/course" method="DELETE">
+			<input type="hidden" name="_method" value="DELETE">
+			<label for="id">Enter your ID:</label>
+			<input type="text" id="id" name="id" placeholder="Enter your student ID..." required>
+			<label for="unregister-course">Select a course to unregister:</label>
+			
+			<select id="unregister-course" name="unregister-course" required>
+				<option value="" disabled selected>Select a course to unregister...</option>
+				<option value="Computer Science">Computer Science</option>
+				<option value="Data Science">Data Science</option>
+				<option value="Web Development">Web Development</option>
+				<option value="Artificial Intelligence">Artificial Intelligence</option>
+				<option value="Machine Learning">Machine Learning</option>
+				<option value="Computer Networks">Computer Networks</option>
+				<option value="Operating Systems">Operating Systems</option>
+				<option value="Database Systems">Database Systems</option>
+				<option value="Algorithms and Data Structures">Algorithms and Data Structures</option>
+				<option value="Computer Graphics">Computer Graphics</option>
+			</select>
+			<input type="submit" value="Unregister">
+		</form>
+		{% endif %}
+        {% if msg %}
+            <p><b>{{ msg }}</b></p>
+        {% endif %}
+	</div> 
+</body>
+
+</html>
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Student/Teacher Login/Registration</title>
+    <style>
+      /* Style the header */
+      header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+      }
+
+      /* Style the links */
+      a {
+        display: block;
+        padding: 10px;
+        margin: 10px;
+        background-color: #ccc;
+        color: #333;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      a:hover {
+        background-color: #666;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Student/Teacher Login/Registration</h1>
+    </header>
+    <main>
+      <a href="{{url_for('login1')}}">Student Login</a>
+      <a href="{{url_for('register1')}}">Student Register</a>
+      <a href="{{url_for('login2')}}">Teacher Login</a>
+      <a href="{{url_for('register2')}}">Teacher Register</a>
+    </main>
+  </body>
+</html>

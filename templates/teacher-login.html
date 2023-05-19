@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Teacher Login</title>
+    <style>
+      /* Style the header */
+      header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+      }
+
+      /* Style the login form */
+      div.log2{
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 5px;
+      }
+
+      input[type="submit"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #666;
+      }
+      p{
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Teacher Login</h1>
+    </header>
+    <div class="log2">
+      <form action = "/teacher-login" method = 'POST'>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+
+        <input type="submit" value="Login">
+      </form>
+      <p><b>Don't have an account<a href="{{url_for('register2')}}">Register here</a></b></p>
+      {% if msg %}
+      <p>{{msg}}</p>
+      {% endif %}
+      {% if e %}
+    <p>Error: {{ e }}</p>
+    {% endif %}
+
+    </div>
+  </body>
+</html>
+
+
+  

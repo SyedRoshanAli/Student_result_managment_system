@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Student Registration</title>
+    <style>
+      /* Style the header */
+      header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+      }
+
+      /* Style the registration form */
+      div.reg1{
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 5px;
+      }
+
+      input[type="submit"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Student Registration</h1>
+    </header>
+    <div class="reg1">
+      <form action= "/student-register" method= 'POST'>
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id">
+
+        <label for="full-name">Full Name:</label>
+        <input type="text" id="full-name" name="full-name">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+
+        <input type="submit" value="Register">
+      </form>
+      {% if msg %}
+      <p>{{ msg }}</p>
+      {% endif %}
+    </div>
+  </body>
+</html>

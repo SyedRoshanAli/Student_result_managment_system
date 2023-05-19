@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Portal</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+		}
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 50px;
+		}
+		input[type="text"], input[type="password"], select {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+		input[type="submit"] {
+			background-color: #4CAF50;
+			color: white;
+			padding: 12px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			margin-top: 20px;
+		}
+		input[type="submit"]:hover {
+			background-color: #3e8e41;
+		}
+		.form-container {
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+			width: 50%;
+			max-width: 500px;
+		}
+		p {
+			text-align: center;
+		}
+		
+	</style>
+</head>
+<body>
+	<h1>Welcome, {{name}}</h1>
+	<div class="container">
+		<div class="form-container">
+			<form action="/student-portal" method="POST">
+				<label for="id">Enter your ID:</label>
+				<input type="text" id="id" name="id" placeholder="Enter your student ID...">
+				<input type="submit" value="Show Results">
+			</form>
+			{% if msg %}
+			<p>{{ msg }} </p>
+			{% endif %}
+			<br>
+			<br>
+			<p><b>Register for a semester:</b></p>
+			<form action="{{ url_for('register_semester') }}" method="POST">
+				<label for="semester">Select a semester:</label>
+				<select id="semester" name="semester">
+					<option value="Fall">Fall</option>
+					<option value="Spring">Spring</option>
+					<option value="Summer">Summer</option>
+				</select>
+				<input type="submit" value="Register">
+			</form>
+			<br>
+			<p><b>Register for courses:</b> <a href="{{ url_for('course') }}">Register</a></p>
+		</div>
+	</div>
+</body>
+</html> 
